@@ -6,6 +6,7 @@ product_list = [ Product("MacBook Air M2", price=1450, quantity=100),
                  Product("Google Pixel 7", price=500, quantity=250)
                ]
 def show_products(store):
+    """Shows all products in the store"""
     print("\n--- Products in Store ---")
     for idx, product in enumerate(store.get_all_products(), 1):
         print(f"{idx}. {product.show()}")
@@ -13,6 +14,17 @@ def show_products(store):
 best_buy = Store(product_list)
 
 def start(store):
+    """
+    Starts an interactive command-line menu for the store.
+
+    Allows the user to:
+    1. View all active products
+    2. See the total quantity of items in the store
+    3. Place an order by selecting products and quantities
+    4. Exit the program
+
+    :param store: Store object that manages the product inventory
+    """
     while True:
         print("     __________      ")
         print("     Store Menu      ")
@@ -69,6 +81,7 @@ def start(store):
 
 
 def main():
+    """Main function"""
     start(best_buy)
 
 if __name__ == "__main__":

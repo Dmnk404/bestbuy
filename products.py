@@ -1,5 +1,14 @@
 class Product:
-    
+    """
+    Represents a product in the store's inventory.
+
+    Attributes:
+        name (str): The name of the product.
+        price (float): The price of a single unit (must be non-negative).
+        quantity (int): The available quantity in stock (must be non-negative).
+        active (bool): Indicates whether the product is available for purchase.
+    """
+
     total_quantity = 0
 
     def __init__(self, name, price, quantity):
@@ -17,24 +26,31 @@ class Product:
         Product.total_quantity += quantity
 
     def get_quantity(self) -> int:
+        """Returns the quantity of the product."""
         return self.quantity
 
     def set_quantity(self, quantity):
+        """Sets the quantity of the product."""
         self.quantity = quantity
 
     def is_active(self) -> bool:
+        """Returns whether the product is available for purchase."""
         return self.active
 
     def activate(self):
+        """Activates the product."""
         self.active = True
 
     def deactivate(self):
+        """Deactivates the product."""
         self.active = False
 
     def show(self) -> str:
+        """Returns a string representation of the product."""
         return "{} {}".format(self.name, self.price, self.quantity)
 
     def buy(self, quantity: int) -> float:
+        """Calculates and Returns the price of the purchase and checks if the entered quantity is valid and available"""
 
         if not isinstance(quantity, int):
             raise TypeError("Quantity must be an integer.")
