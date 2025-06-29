@@ -50,7 +50,8 @@ class Product:
         return f"{self.name} Price: {self.price} Quantity: {self.quantity}"
 
     def buy(self, quantity: int) -> float:
-        """Calculates and Returns the price of the purchase and checks if the entered quantity is valid and available"""
+        """Calculates and Returns the price of the purchase and checks
+            if the entered quantity is valid and available"""
 
         if not isinstance(quantity, int):
             raise TypeError("Quantity must be an integer.")

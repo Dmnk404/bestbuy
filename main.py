@@ -5,11 +5,12 @@ product_list = [ Product("MacBook Air M2", price=1450, quantity=100),
                  Product("Bose QuietComfort Earbuds", price=250, quantity=500),
                  Product("Google Pixel 7", price=500, quantity=250)
                ]
+
 def show_products(store):
     """Shows all products in the store"""
     print("\n--- Products in Store ---")
     for idx, product in enumerate(store.get_all_products(), 1):
-        print(Product.show(product))
+        print(f"{idx}. {Product.show(product)}")
 
 best_buy = Store(product_list)
 
@@ -69,8 +70,8 @@ def start(store):
             try:
                 total = store.order(shopping_list)
                 print(f"Order successful! Total price: ${total:.2f}")
-            except Exception as e:
-                print(f"Order failed: {e}")
+            except (ValueError, TypeError) as exception:
+                print(f"Order failed: {exception}")
 
         elif choice == "4":
             print("Thank you for shopping with us!")
@@ -86,5 +87,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

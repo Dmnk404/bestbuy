@@ -36,15 +36,17 @@ class Store():
         return [product for product in self.list_of_products if product.active]
 
     def order(self, shopping_list) -> float:
-        """Calculates and Returns the price of the purchase."""
-        total_price = 0.00
+        """Processes a shopping list and returns the total price.
+
+        Raises:
+            ValueError: If a product is not in the store or quantity is invalid.
+        """
+        total_price = 0.0
 
         for product_to_buy, quantity_to_buy in shopping_list:
-            if quantity_to_buy > product_to_buy.quantity:
-                raise Exception("Not enough quantity")
+            if product_to_buy not in self.list_of_products:
+                raise ValueError(f"Product '{product_to_buy.name}' is not in the store.")
 
             total_price += product_to_buy.buy(quantity_to_buy)
 
         return total_price
-
-
