@@ -47,7 +47,7 @@ class Product:
 
     def show(self) -> str:
         """Returns a string representation of the product."""
-        return "{} {}".format(self.name, self.price, self.quantity)
+        return f"{self.name} Price: {self.price} Quantity: {self.quantity}"
 
     def buy(self, quantity: int) -> float:
         """Calculates and Returns the price of the purchase and checks if the entered quantity is valid and available"""
@@ -63,5 +63,7 @@ class Product:
 
         total_price = quantity * self.price
         self.quantity -= quantity
+        if self.quantity == 0:
+            self.deactivate()
         Product.total_quantity -= quantity
         return total_price

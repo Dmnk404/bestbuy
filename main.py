@@ -9,7 +9,7 @@ def show_products(store):
     """Shows all products in the store"""
     print("\n--- Products in Store ---")
     for idx, product in enumerate(store.get_all_products(), 1):
-        print(f"{idx}. {product.show()}")
+        print(Product.show(product))
 
 best_buy = Store(product_list)
 
